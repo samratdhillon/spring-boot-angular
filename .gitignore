@@ -31,8 +31,8 @@ nbdist/
 /out-tsc
 
 # dependencies
-/node
-/node_modules
+**/node
+**/node_modules
 node/
 
 # IDEs and editors
