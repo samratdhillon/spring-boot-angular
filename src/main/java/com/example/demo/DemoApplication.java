@@ -16,35 +16,35 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class DemoApplication {
 
-  @GetMapping("/resource")
-  @ResponseBody
-  public Map<String, Object> home() {
-    Map<String, Object> model = new HashMap<String, Object>();
-    model.put("id", UUID.randomUUID().toString());
-    model.put("content", "Hello World");
-    return model;
-  }
+    @GetMapping("/resource")
+    @ResponseBody
+    public Map<String, Object> home() {
+        Map<String, Object> model = new HashMap<>();
+        model.put("id", UUID.randomUUID().toString());
+        model.put("content", "Hello World");
+        return model;
+    }
 
-  @GetMapping(value = "/{path:[^\\.]*}")
-  public String redirect() {
-    return "forward:/";
-  }
+    @GetMapping(value = "/{path:[^\\.]*}")
+    public String redirect() {
+        return "forward:/";
+    }
 
-  public static void main(String[] args) {
-    SpringApplication.run(DemoApplication.class, args);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
 }
 
 @Component
 @ConfigurationProperties("demo")
 class DemoProperties {
-  private String value;
+    private String value;
 
-public String getValue() {
-	return value;
-}
+    public String getValue() {
+        return value;
+    }
 
-public void setValue(String value) {
-	this.value = value;
-}
+    public void setValue(String value) {
+        this.value = value;
+    }
 }
